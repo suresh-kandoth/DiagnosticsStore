@@ -1,4 +1,4 @@
-# DiagnosticsStore
+# Diagnostics Store
 Scripts to setup a continuous collection of diagnostic data available on SQL Server using minimal intervention and built-in tools.
 
 ## Background

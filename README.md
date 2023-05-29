@@ -14,6 +14,7 @@ The goal of this project is to provide you with the necessary building blocks an
 - Use built-in scheduling facility (e.g. SQL Server agent to manage various schedules to capture diagnostic information at various intervals, retry mechanism, etc.).
 - Use built-in Dedicated Administrator Connection to gather diagnostic information. This ensures you are guaranteed to gather the output even during severe resource constraints since queries under this connection using reserved internal pool and resources. You will not run into the same issues (gaps in diagnostic log collection) that the normal user connections run into.
 - Keep the connection persisted and not try to compete with resources when the problem is happening.
+- When gathering data, do not perform joins or complex processing. Keep it simple to minimize resource usage. Transformations can happen when consuming data.
 - Store the information locally and then consolidate later in warehouse or lakes.
 - Leverage great techniques and capabilities available in the storage engine like page compression, partitioning and columnstore indexes for long term retention and archiving purposes to optimize space used for diagnostic purposes.
 - Use great data visualization tools like Power BI to analyze the captued information for trends and patterns.

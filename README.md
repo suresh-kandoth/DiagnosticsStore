@@ -18,4 +18,8 @@ The goal of this project is to provide you with the necessary building blocks an
 - Store the information locally and then consolidate later in warehouse or lakes.
 - Leverage great techniques and capabilities available in the storage engine like page compression, partitioning and columnstore indexes for long term retention and archiving purposes to optimize space used for diagnostic purposes.
 - Use great data visualization tools like Power BI to analyze the captured information for trends and patterns.
+- Use AI and ML toolset to perform interactive analysis over the captured diagnostics information.
 
+## How to set this up and use
+See the instructions in the Wiki section for details setps on configuring various aspects of Diagnostics Store. 
+https://github.com/suresh-kandoth/DiagnosticsStore/wiki

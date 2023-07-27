@@ -19,7 +19,8 @@ BEGIN
 	BEGIN
 	SET @command = N'SELECT GETDATE() as snap_time ,*
 	INTO [' + @diagnostics_object_schema + '].[' + @diagnostics_object_name + '] 
-	FROM ' + @system_object_schema + '.' + @system_object_name
+	FROM ' + @system_object_schema + '.' + @system_object_name + '
+	WHERE 1 = 2 '
 	
 	--PRINT @command
 	EXEC (@command)

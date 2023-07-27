@@ -34,13 +34,16 @@ INSERT INTO [Snapshot].Information_To_Collect VALUES ('dm_os_performance_counter
 INSERT INTO [Snapshot].Information_To_Collect VALUES ('dm_os_process_memory','sys','dm_os_process_memory','Snapshot','Every 5 minutes','server')
 INSERT INTO [Snapshot].Information_To_Collect VALUES ('dm_os_schedulers','sys','dm_os_schedulers','Snapshot','Every 5 minutes','server')
 INSERT INTO [Snapshot].Information_To_Collect VALUES ('dm_os_spinlock_stats','sys','dm_os_spinlock_stats','Snapshot','Every 5 minutes','server')
-INSERT INTO [Snapshot].Information_To_Collect VALUES ('dm_os_sys_info','sys','dm_os_sys_info','Snapshot','Every 5 minutes','server')
 INSERT INTO [Snapshot].Information_To_Collect VALUES ('dm_os_sys_memory','sys','dm_os_sys_memory','Snapshot','Every 5 minutes','server')
 INSERT INTO [Snapshot].Information_To_Collect VALUES ('dm_os_tasks','sys','dm_os_tasks','Snapshot','Every 5 minutes','server')
 INSERT INTO [Snapshot].Information_To_Collect VALUES ('dm_os_threads','sys','dm_os_threads','Snapshot','Every 5 minutes','server')
 INSERT INTO [Snapshot].Information_To_Collect VALUES ('dm_os_waiting_tasks','sys','dm_os_waiting_tasks','Snapshot','Every 5 minutes','server')
 INSERT INTO [Snapshot].Information_To_Collect VALUES ('dm_os_wait_stats','sys','dm_os_wait_stats','Snapshot','Every 5 minutes','server')
 INSERT INTO [Snapshot].Information_To_Collect VALUES ('dm_os_workers','sys','dm_os_workers','Snapshot','Every 5 minutes','server')
+
+INSERT INTO [Snapshot].Information_To_Collect VALUES ('dm_os_sys_info','sys','dm_os_sys_info','Snapshot','Every 1 day','server')
+INSERT INTO [Snapshot].Information_To_Collect VALUES ('dm_os_loaded_modules','sys','dm_os_loaded_modules','Snapshot','Every 1 day','server')
+INSERT INTO [Snapshot].Information_To_Collect VALUES ('dm_os_virtual_address_dump','sys','dm_os_virtual_address_dump','Snapshot','Every 1 day','server')
 GO
 -- I/O Related Dynamic Management Views and Functions
 INSERT INTO [Snapshot].Information_To_Collect VALUES ('dm_io_virtual_file_stats(NULL,NULL)','sys','dm_io_virtual_file_stats','Snapshot','Every 5 minutes','server')
@@ -49,9 +52,10 @@ GO
 -- Database Related Dynamic Management Views 
 INSERT INTO [Snapshot].Information_To_Collect VALUES ('dm_db_file_space_usage','sys','dm_db_file_space_usage','Snapshot','Every 5 minutes','database')
 INSERT INTO [Snapshot].Information_To_Collect VALUES ('dm_db_log_space_usage','sys','dm_db_log_space_usage','Snapshot','Every 5 minutes','database')
-INSERT INTO [Snapshot].Information_To_Collect VALUES ('dm_db_partition_stats','sys','dm_db_partition_stats','Snapshot','Every 5 minutes','database')
 INSERT INTO [Snapshot].Information_To_Collect VALUES ('dm_db_session_space_usage','sys','dm_db_session_space_usage','Snapshot','Every 5 minutes','database')
 INSERT INTO [Snapshot].Information_To_Collect VALUES ('dm_db_task_space_usage','sys','dm_db_task_space_usage','Snapshot','Every 5 minutes','database')
+
+INSERT INTO [Snapshot].Information_To_Collect VALUES ('dm_db_partition_stats','sys','dm_db_partition_stats','Snapshot','Every 1 day','database')
 GO
 -- Execution Related Dynamic Management Views
 INSERT INTO [Snapshot].Information_To_Collect VALUES ('dm_exec_background_job_queue','sys','dm_exec_background_job_queue','Snapshot','Every 5 minutes','server')
@@ -69,6 +73,12 @@ INSERT INTO [Snapshot].Information_To_Collect VALUES ('dm_exec_query_resource_se
 INSERT INTO [Snapshot].Information_To_Collect VALUES ('dm_exec_requests','sys','dm_exec_requests','Snapshot','Every 5 minutes','server')
 INSERT INTO [Snapshot].Information_To_Collect VALUES ('dm_exec_session_wait_stats','sys','dm_exec_session_wait_stats','Snapshot','Every 5 minutes','server')
 INSERT INTO [Snapshot].Information_To_Collect VALUES ('dm_exec_sessions','sys','dm_exec_sessions','Snapshot','Every 5 minutes','server')
+
+INSERT INTO [Snapshot].Information_To_Collect VALUES ('dm_exec_query_stats','sys','dm_exec_query_stats','Snapshot','Every 1 hour','server')
+INSERT INTO [Snapshot].Information_To_Collect VALUES ('dm_exec_trigger_stats','sys','dm_exec_trigger_stats','Snapshot','Every 1 hour','server')
+INSERT INTO [Snapshot].Information_To_Collect VALUES ('dm_exec_procedure_stats','sys','dm_exec_procedure_stats','Snapshot','Every 1 hour','server')
+INSERT INTO [Snapshot].Information_To_Collect VALUES ('dm_exec_function_stats','sys','dm_exec_function_stats','Snapshot','Every 1 hour','server')
+
 GO
 -- Transaction Related Dynamic Management Views
 INSERT INTO [Snapshot].Information_To_Collect VALUES ('dm_tran_active_snapshot_database_transactions','sys','dm_tran_active_snapshot_database_transactions','Snapshot','Every 5 minutes','server')
@@ -83,5 +93,5 @@ INSERT INTO [Snapshot].Information_To_Collect VALUES ('dm_tran_aborted_transacti
 GO
 
 SELECT * FROM [Snapshot].[Information_To_Collect]
-ORDER BY system_object_name
+ORDER BY frequency, scope, system_object_name
 GO
